@@ -135,7 +135,7 @@ def t2t_qwen(
         user_prompt (str): User input content
         model (str, optional): Model name. Defaults to "qwen3-235b-a22b".
         temperature (float, optional): Model temperature parameter. Defaults to 0.7.
-        response_format (Dict[str, str], optional): Model response format. Defaults to {"type": "text"}.
+        response_format (Dict[str, str], optional): Model response format. Defaults to {"type": "text"}, options: {"type": "text"}, {"type": "json_object"}
 
     Returns:
         str: AI generated response content
@@ -180,21 +180,56 @@ def t2t_qwen(
     return llm_result
 
 
+def t2t(
+    system_prompt: str,
+    user_prompt: str,
+    llm: str = "qwen",
+    model: str = "qwen3-235b-a22b",
+    temperature: float = 0.7,
+    response_format: Dict[str, str] = {"type": "text"},
+) -> str:
+    """T2T large language models wrapper
+
+    Args:
+        system_prompt (str): System prompt that defines AI's role and behavior
+        user_prompt (str): User input content
+        llm (str, optional): LLM name. Defaults to "qwen", options: "qwen", "hunyuan", "new_api"
+        model (str, optional): Model name. Defaults to "qwen3-235b-a22b".
+        temperature (float, optional): Model temperature parameter. Defaults to 0.7.
+        response_format (Dict[str, str], optional): Model response format. Defaults to {"type": "text"}.
+
+    Returns:
+        str: AI generated response content
+    """
+    if llm == "qwen":
+        return t2t_qwen(system_prompt, user_prompt, model, temperature, response_format)
+    elif llm == "hunyuan":
+        return t2t_hunyuan(
+            system_prompt, user_prompt, model, temperature, response_format
+        )
+    elif llm == "new_api":
+        return t2t_new_api(
+            system_prompt, user_prompt, model, temperature, response_format
+        )
+    else:
+        raise ValueError(f"Unsupported llm: {llm}")
+
+
 if __name__ == "__main__":
-    # 测试api调用
-    system_prompt = "你是一个聊天机器人"
-    user_prompt = "你好呀~"
+    # # 测试api调用
+    # system_prompt = "你是一个聊天机器人"
+    # user_prompt = "你好呀~"
 
-    # 测试NewApi
-    response = t2t_new_api(system_prompt, user_prompt)
-    print(f"NewApi回复: {response}")
+    # # 测试NewApi
+    # response = t2t_new_api(system_prompt, user_prompt)
+    # print(f"NewApi回复: {response}")
 
-    # 测试Hunyuan
-    response = t2t_hunyuan(system_prompt, user_prompt)
-    print(f"Hunyuan回复: {response}")
+    # # 测试Hunyuan
+    # response = t2t_hunyuan(system_prompt, user_prompt)
+    # print(f"Hunyuan回复: {response}")
 
-    # 测试Qwen
-    response = t2t_qwen(system_prompt, user_prompt)
-    print(f"Qwen回复: {response}")
+    # # 测试Qwen
+    # response = t2t_qwen(system_prompt, user_prompt)
+    # print(f"Qwen回复: {response}")
 
     pass
