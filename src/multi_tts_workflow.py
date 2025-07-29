@@ -407,7 +407,27 @@ def tts_generation(integrated_data: List[Dict[str, Any]], floder_name="output"):
 
 
 def multi_tts_workflow(text: str, floder_name="output"):
-    pass
+    """multi tts workflow, generate tts audio file from input novel text, which output to floder_name
+
+    Args:
+        text (str): input text
+        floder_name (str, optional): output floder name. Defaults to "output".
+
+    """
+    # step1: identify role
+    role_list = identify_role(text)
+    # step2: auto voice match
+    voice_match_info_list = auto_voice_match_minimax(role_list)
+    # step3: segment novel text
+    segments = novel_segmentation(text)
+    # step4: identify speaker
+    speaker_list = identify_speaker(segments, role_list)
+    # step5: combine data
+    combined_data = combine_data(segments, speaker_list, voice_match_info_list)
+    # step6: integrate same speaker
+    integrated_data = integrate_same_speaker(combined_data)
+    # step7: tts generation
+    tts_generation(integrated_data, floder_name=floder_name)
 
 
 if __name__ == "__main__":
