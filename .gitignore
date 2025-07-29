@@ -14,3 +14,6 @@ wheels/
 
 # .vscode file
 .vscode/
+
+# tts output folder
+/tests/output_tts

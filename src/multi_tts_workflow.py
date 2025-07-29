@@ -5,6 +5,7 @@ from pathlib import Path
 import json
 import re
 from dotenv import dotenv_values
+from time import sleep
 
 config: dict = dotenv_values(".env")
 
@@ -396,6 +397,7 @@ def tts_generation(integrated_data: List[Dict[str, Any]], floder_name="output"):
             )
         except Exception as e:
             raise e
+        sleep(2)
         # save audio file
         try:
             with open(output_dir / f"{item['segment_id']}.mp3", "wb") as f:
@@ -410,11 +412,13 @@ def multi_tts_workflow(text: str, floder_name="output"):
 
 if __name__ == "__main__":
     # 读取小说文本
-    with open("tests/test_novel/血玫瑰.txt", "r", encoding="utf-8") as f:
+    with open(
+        "tests/test_novel/第三人称/1911新中华第一章.txt", "r", encoding="utf-8"
+    ) as f:
         text_novel = f.read()
 
     # 测试角色识别功能
-    print("=== 角色识别结果 ===")
+    print("\n=== 角色识别结果 ===")
     role_list = identify_role(text_novel)
     print(role_list)
 
@@ -445,4 +449,4 @@ if __name__ == "__main__":
 
     # 测试TTS生成功能
     print("\n=== TTS生成结果 ===")
-    tts_generation(integrated_data, floder_name="test")
+    tts_generation(integrated_data, floder_name="1911新中华")
