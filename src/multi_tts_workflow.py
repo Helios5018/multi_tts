@@ -169,37 +169,6 @@ def identify_speaker(
     return speaker_list
 
 
-def combine_data(
-    segments: List[Dict[str, Any]], speaker_list: List[Dict[str, Any]]
-) -> List[Dict[str, Any]]:
-    """combine segments and speaker list
-
-    Args:
-        segments (List[Dict[str, Any]]): segment list with specific structure
-        speaker_list (List[Dict[str, Any]]): speaker list with specific structure
-
-    Returns:
-        List[Dict[str, Any]]: combined data list with specific structure
-    """
-    # create combined data list
-    combined_data = []
-    for segment in segments:
-        # find speaker from speaker list
-        speaker = next(
-            (
-                item["speaker"]
-                for item in speaker_list
-                if item["segment_id"] == segment["segment_id"]
-            ),
-            None,
-        )
-        # add speaker to segment
-        segment["speaker"] = speaker
-        # add segment to combined data list
-        combined_data.append(segment)
-    return combined_data
-
-
 def auto_voice_match_minimax(
     role_list: List[Dict[str, Any]],
 ) -> List[Dict[str, Any]]:
@@ -214,7 +183,7 @@ def auto_voice_match_minimax(
                             {
                                 "role_id": int,
                                 "name": str,
-                                "voice_name": str,
+                                "voice_info": Dict[str, Any],
                             }
     """
     # get current file path
@@ -232,7 +201,9 @@ def auto_voice_match_minimax(
         current_file.parent / "voice_list" / "minimax_voice_list.json"
     )
     try:
-        minimax_voice_list_str = minimax_voice_list_file_path.read_text(encoding="utf-8")
+        minimax_voice_list_str = minimax_voice_list_file_path.read_text(
+            encoding="utf-8"
+        )
         minimax_voice_list = json.loads(minimax_voice_list_str)
     except Exception as e:
         raise e
@@ -274,14 +245,166 @@ def auto_voice_match_minimax(
     except Exception as e:
         raise e
 
-    return voice_match_list
+    # combine voice match list with minimax voice list
+
+    voice_match_info_list = []
+    for item in voice_match_list:
+        voice_id = next(
+            (
+                voice["voice_id"]
+                for voice in minimax_voice_list
+                if voice["voice_name"] == item["voice_name"]
+            ),
+            None,
+        )
+        voice_match_info = {}
+        voice_match_info["role_id"] = item["role_id"]
+        voice_match_info["name"] = item["name"]
+        voice_match_info["voice_info"] = {
+            "voice_name": item["voice_name"],
+            "voice_source": "minimax",
+            "voice_id": voice_id,
+        }
+        voice_match_info_list.append(voice_match_info)
+
+    return voice_match_info_list
 
 
-def tts_generation(segments: List[Dict[str, Any]]):
-    pass
+def combine_data(
+    segments: List[Dict[str, Any]],
+    speaker_list: List[Dict[str, Any]],
+    voice_match_info_list: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """combine segments and speaker list and voice match list
+
+    Args:
+        segments (List[Dict[str, Any]]): segment list with specific structure
+        speaker_list (List[Dict[str, Any]]): speaker list with specific structure
+        voice_match_info_list (List[Dict[str, Any]]): voice match list with specific structure
+
+    Returns:
+        List[Dict[str, Any]]: combined data list with specific structure
+                            Each dictionary has the structure:
+                            {
+                                "segment_id": int,
+                                "content": str,
+                                "speaker": str,
+                                "voice_info": Dict[str, Any]
+                            }
+    """
+    # create combined data list
+    combined_data = []
+
+    for segment in segments:
+        # find speaker from speaker list
+        speaker = next(
+            (
+                item["speaker"]
+                for item in speaker_list
+                if item["segment_id"] == segment["segment_id"]
+            ),
+            None,
+        )
+        # find voice from voice match list
+        voice_info = next(
+            (
+                item["voice_info"]
+                for item in voice_match_info_list
+                if item["name"] == speaker
+            ),
+            None,
+        )
+        # add speaker and voice to segment
+        segment["speaker"] = speaker
+        segment["voice_info"] = voice_info
+        # add segment to combined data list
+        combined_data.append(segment)
+
+    return combined_data
 
 
-def multi_tts_workflow(text: str):
+def integrate_same_speaker(combined_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """integrate same speaker sentence
+
+    Args:
+        combined_data (List[Dict[str, Any]]): combined data list with specific structure
+
+    Returns:
+        List[Dict[str, Any]]: integrated data list with specific structure
+                            Each dictionary has the structure:
+                            {
+                                "segment_id": int,
+                                "content": str,
+                                "speaker": str,
+                                "voice_info": Dict[str, Any]
+                            }
+    """
+    # integrate same speaker sentence
+    integrated_data = []
+    last_segment_speaker = ""
+    last_voice_info = {}
+    combile_content = ""
+
+    for item in combined_data:
+        if item["speaker"] == last_segment_speaker:
+            combile_content += item["content"]
+        else:
+            if combile_content:
+                new_item = {
+                    "segment_id": len(integrated_data),
+                    "speaker": last_segment_speaker,
+                    "content": combile_content.replace("\n", ""),
+                    "voice_info": last_voice_info,
+                }
+                integrated_data.append(new_item)
+            combile_content = item["content"]
+
+        last_segment_speaker = item["speaker"]
+        last_voice_info = item["voice_info"]
+
+    # add last item
+    if combile_content:
+        new_item = {
+            "segment_id": len(integrated_data),
+            "speaker": last_segment_speaker,
+            "content": combile_content,
+            "voice_info": last_voice_info,
+        }
+        integrated_data.append(new_item)
+
+    return integrated_data
+
+
+def tts_generation(integrated_data: List[Dict[str, Any]], floder_name="output"):
+    """tts generation
+
+    Args:
+        integrated_data (List[Dict[str, Any]]): integrated data list with specific structure
+        floder_name (str, optional): output floder name. Defaults to "output".
+    """
+    # create output dir
+    output_dir = Path(f"tests/output_tts/{floder_name}")
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # generate tts minimax
+    for item in integrated_data:
+        # tts bytes generation
+        try:
+            audio_bytes = t2s_minimax(
+                text=item["content"],
+                voice_id=item["voice_info"]["voice_id"],
+            )
+        except Exception as e:
+            raise e
+        # save audio file
+        try:
+            with open(output_dir / f"{item['segment_id']}.mp3", "wb") as f:
+                f.write(audio_bytes)
+        except Exception as e:
+            raise e
+
+
+def multi_tts_workflow(text: str, floder_name="output"):
     pass
 
 
@@ -295,22 +418,31 @@ if __name__ == "__main__":
     role_list = identify_role(text_novel)
     print(role_list)
 
-    # # 测试小说切分功能
-    # print("\n=== 小说切分结果 ===")
-    # segments = novel_segmentation(text_novel)
-    # print(segments)
-
-    # # 测试说话人识别功能
-    # print("\n=== 说话人识别结果 ===")
-    # speaker_list = identify_speaker(segments, role_list)
-    # print(speaker_list)
-
-    # # 测试数据合并功能
-    # print("\n=== 数据合并结果 ===")
-    # combined_data = combine_data(segments, speaker_list)
-    # print(combined_data)
-
     # 测试音色匹配功能
     print("\n=== 音色匹配结果 ===")
-    voice_match_list = auto_voice_match_minimax(role_list)
-    print(voice_match_list)
+    voice_match_info_list = auto_voice_match_minimax(role_list)
+    print(voice_match_info_list)
+
+    # 测试小说切分功能
+    print("\n=== 小说切分结果 ===")
+    segments = novel_segmentation(text_novel)
+    print(segments)
+
+    # 测试说话人识别功能
+    print("\n=== 说话人识别结果 ===")
+    speaker_list = identify_speaker(segments, role_list)
+    print(speaker_list)
+
+    # 测试数据合并功能
+    print("\n=== 数据合并结果 ===")
+    combined_data = combine_data(segments, speaker_list, voice_match_info_list)
+    print(combined_data)
+
+    # 测试数据整合功能
+    print("\n=== 数据整合结果 ===")
+    integrated_data = integrate_same_speaker(combined_data)
+    print(integrated_data)
+
+    # 测试TTS生成功能
+    print("\n=== TTS生成结果 ===")
+    tts_generation(integrated_data, floder_name="test")
