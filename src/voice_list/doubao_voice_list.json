@@ -1,0 +1,1766 @@
+[
+  {
+    "category": "多情感",
+    "character_name": "北京小爷",
+    "voice_type": "zh_male_beijingxiaoye_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "柔美女友",
+    "voice_type": "zh_female_roumeinvyou_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "阳光青年",
+    "voice_type": "zh_male_yangguangqingnian_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "魅力女友",
+    "voice_type": "zh_female_meilinvyou_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "爽快思思",
+    "voice_type": "zh_female_shuangkuaisisi_emo_v2_mars_bigtts",
+    "language": "中文、美式英语"
+  },
+  {
+    "category": "多情感",
+    "character_name": "甜心小美",
+    "voice_type": "zh_female_tianxinxiaomei_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "高冷御姐",
+    "voice_type": "zh_female_gaolengyujie_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "傲娇霸总",
+    "voice_type": "zh_male_aojiaobazong_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "广州德哥",
+    "voice_type": "zh_male_guangzhoudege_emo_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "京腔侃爷",
+    "voice_type": "zh_male_jingqiangkanye_emo_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "邻居阿姨",
+    "voice_type": "zh_female_linjuayi_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "优柔公子",
+    "voice_type": "zh_male_yourougongzi_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "儒雅男友",
+    "voice_type": "zh_male_ruyayichen_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "俊朗男友",
+    "voice_type": "zh_male_junlangnanyou_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多情感",
+    "character_name": "冷酷哥哥",
+    "voice_type": "zh_male_lengkugege_emo_v2_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Glen",
+    "voice_type": "en_male_glen_emo_v2_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Sylus",
+    "voice_type": "en_male_sylus_emo_v2_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Candice",
+    "voice_type": "en_female_candice_emo_v2_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Corey",
+    "voice_type": "en_male_corey_emo_v2_mars_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Nadia",
+    "voice_type": "en_female_nadia_tips_emo_v2_mars_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Serena",
+    "voice_type": "en_female_skye_emo_v2_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Tina老师",
+    "voice_type": "zh_female_yingyujiaoyu_mars_bigtts",
+    "language": "中、英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "暖阳女声",
+    "voice_type": "zh_female_kefunvsheng_mars_bigtts",
+    "language": "仅中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "甜美桃子",
+    "voice_type": "zh_female_tianmeitaozi_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Vivi",
+    "voice_type": "zh_female_vv_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "灿灿/Shiny",
+    "voice_type": "zh_female_cancan_mars_bigtts",
+    "language": "中文、美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "清新女声",
+    "voice_type": "zh_female_qingxinnvsheng_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "爽快思思/Skye",
+    "voice_type": "zh_female_shuangkuaisisi_moon_bigtts",
+    "language": "中文、美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "温暖阿虎/Alvin",
+    "voice_type": "zh_male_wennuanahu_moon_bigtts",
+    "language": "中文、美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "少年梓辛/Brayan",
+    "voice_type": "zh_male_shaonianzixin_moon_bigtts",
+    "language": "中文、美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "知性女声",
+    "voice_type": "zh_female_zhixingnvsheng_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "清爽男大",
+    "voice_type": "zh_male_qingshuangnanda_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "邻家女孩",
+    "voice_type": "zh_female_linjianvhai_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "渊博小叔",
+    "voice_type": "zh_male_yuanboxiaoshu_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "阳光青年",
+    "voice_type": "zh_male_yangguangqingnian_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "甜美小源",
+    "voice_type": "zh_female_tianmeixiaoyuan_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "清澈梓梓",
+    "voice_type": "zh_female_qingchezizi_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "解说小明",
+    "voice_type": "zh_male_jieshuoxiaoming_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "开朗姐姐",
+    "voice_type": "zh_female_kailangjiejie_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "邻家男孩",
+    "voice_type": "zh_male_linjiananhai_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "甜美悦悦",
+    "voice_type": "zh_female_tianmeiyueyue_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "心灵鸡汤",
+    "voice_type": "zh_female_xinlingjitang_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "知性温婉",
+    "voice_type": "ICL_zh_female_zhixingwenwan_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "暖心体贴",
+    "voice_type": "ICL_zh_male_nuanxintitie_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "温柔文雅",
+    "voice_type": "ICL_zh_female_wenrouwenya_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "开朗轻快",
+    "voice_type": "ICL_zh_male_kailangqingkuai_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "活泼爽朗",
+    "voice_type": "ICL_zh_male_huoposhuanglang_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "率真小伙",
+    "voice_type": "ICL_zh_male_shuaizhenxiaohuo_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "温柔小哥",
+    "voice_type": "zh_male_wenrouxiaoge_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "亲切女声",
+    "voice_type": "zh_female_qinqienvsheng_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "机灵小伙",
+    "voice_type": "ICL_zh_male_shenmi_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "元气甜妹",
+    "voice_type": "ICL_zh_female_wuxi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "知心姐姐",
+    "voice_type": "ICL_zh_female_wenyinvsheng_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "阳光阿辰",
+    "voice_type": "zh_male_qingyiyuxuan_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "快乐小东",
+    "voice_type": "zh_male_xudong_conversation_wvae_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "冷酷哥哥",
+    "voice_type": "ICL_zh_male_lengkugege_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "纯澈女生",
+    "voice_type": "ICL_zh_female_feicui_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "初恋女友",
+    "voice_type": "ICL_zh_female_yuxin_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "贴心闺蜜",
+    "voice_type": "ICL_zh_female_xnx_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "温柔白月光",
+    "voice_type": "ICL_zh_female_yry_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "开朗学长",
+    "voice_type": "en_male_jason_conversation_wvae_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "魅力苏菲",
+    "voice_type": "zh_female_sophie_conversation_wvae_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "贴心妹妹",
+    "voice_type": "ICL_zh_female_yilin_tob",
+    "language": "中文"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Smith",
+    "voice_type": "en_male_smith_mars_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Anna",
+    "voice_type": "en_female_anna_mars_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Adam",
+    "voice_type": "en_male_adam_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Sarah",
+    "voice_type": "en_female_sarah_mars_bigtts",
+    "language": "澳洲英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Dryw",
+    "voice_type": "en_male_dryw_mars_bigtts",
+    "language": "澳洲英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "かずね（和音）/Javier or álvaro",
+    "voice_type": "multi_male_jingqiangkanye_moon_bigtts",
+    "language": "日语、西语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "はるこ（晴子）/Esmeralda",
+    "voice_type": "multi_female_shuangkuaisisi_moon_bigtts",
+    "language": "日语、西语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "ひろし（広志）/Roberto",
+    "voice_type": "multi_male_wanqudashu_moon_bigtts",
+    "language": "日语、西语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "あけみ（朱美）",
+    "voice_type": "multi_female_gaolengyujie_moon_bigtts",
+    "language": "日语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Amanda",
+    "voice_type": "en_female_amanda_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Jackson",
+    "voice_type": "en_male_jackson_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Cartoon Chef",
+    "voice_type": "ICL_en_male_cc_sha_v1_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "ひかる（光）",
+    "voice_type": "multi_zh_male_youyoujunzi_moon_bigtts",
+    "language": "日语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Emily",
+    "voice_type": "en_female_emily_mars_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Daniel",
+    "voice_type": "zh_male_xudong_conversation_wvae_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Lucas",
+    "voice_type": "zh_male_M100_conversation_wvae_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Diana",
+    "voice_type": "multi_female_maomao_conversation_wvae_bigtts",
+    "language": "西语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Lucía",
+    "voice_type": "multi_male_M100_conversation_wvae_bigtts",
+    "language": "西语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Sofía",
+    "voice_type": "multi_female_sophie_conversation_wvae_bigtts",
+    "language": "西语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Daníel",
+    "voice_type": "multi_male_xudong_conversation_wvae_bigtts",
+    "language": "西语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "さとみ（智美）",
+    "voice_type": "multi_female_sophie_conversation_wvae_bigtts",
+    "language": "日语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "まさお（正男）",
+    "voice_type": "multi_male_xudong_conversation_wvae_bigtts",
+    "language": "日语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "つき（月）",
+    "voice_type": "multi_female_maomao_conversation_wvae_bigtts",
+    "language": "日语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Sophie",
+    "voice_type": "zh_female_sophie_conversation_wvae_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Daisy",
+    "voice_type": "en_female_dacey_conversation_wvae_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Owen",
+    "voice_type": "en_male_charlie_conversation_wvae_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Ethan",
+    "voice_type": "ICL_en_male_aussie_v1_tob",
+    "language": "澳洲英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Luna",
+    "voice_type": "en_female_sarah_new_conversation_wvae_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Michael",
+    "voice_type": "ICL_en_male_michael_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Alastor",
+    "voice_type": "ICL_en_male_cc_alastor_tob",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Charlie",
+    "voice_type": "ICL_en_female_cc_cm_v1_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Big Boogie",
+    "voice_type": "ICL_en_male_oogie2_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Frosty Man",
+    "voice_type": "ICL_en_male_frosty1_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "The Grinch",
+    "voice_type": "ICL_en_male_grinch2_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Zayne",
+    "voice_type": "ICL_en_male_zayne_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Jigsaw",
+    "voice_type": "ICL_en_male_cc_jigsaw_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Chucky",
+    "voice_type": "ICL_en_male_cc_chucky_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Clown Man",
+    "voice_type": "ICL_en_male_cc_penny_v1_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Kevin McCallister",
+    "voice_type": "ICL_en_male_kevin2_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Xavier",
+    "voice_type": "ICL_en_male_xavier1_v1_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Noah",
+    "voice_type": "ICL_en_male_cc_dracula_v1_tob",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Energetic Male II",
+    "voice_type": "en_male_campaign_jamal_moon_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Gotham Hero",
+    "voice_type": "en_male_chris_moon_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Delicate Girl",
+    "voice_type": "en_female_daisy_moon_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Flirty Female",
+    "voice_type": "en_female_product_darcie_moon_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Peaceful Female",
+    "voice_type": "en_female_emotional_moon_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Nara",
+    "voice_type": "en_female_nara_moon_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Candice",
+    "voice_type": "en_female_candice_emo_v2_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Corey",
+    "voice_type": "en_male_corey_emo_v2_mars_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Nadia1",
+    "voice_type": "en_female_nadia_tips_emo_v2_mars_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Serena",
+    "voice_type": "en_female_skye_emo_v2_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Bruce",
+    "voice_type": "en_male_bruce_moon_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Dave",
+    "voice_type": "en_male_dave_moon_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Michael",
+    "voice_type": "en_male_michael_moon_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Hades",
+    "voice_type": "en_male_hades_moon_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Onez",
+    "voice_type": "en_female_onez_moon_bigtts",
+    "language": "英式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Glen",
+    "voice_type": "en_male_glen_emo_v2_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Nadia2",
+    "voice_type": "en_female_nadia_poetry_emo_v2_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "多语种",
+    "character_name": "Sylus",
+    "voice_type": "en_male_sylus_emo_v2_mars_bigtts",
+    "language": "美式英语"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "京腔侃爷/Harmony",
+    "voice_type": "zh_male_jingqiangkanye_moon_bigtts",
+    "language": "中文-北京口音、英文"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "湾湾小何",
+    "voice_type": "zh_female_wanwanxiaohe_moon_bigtts",
+    "language": "中文-台湾口音"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "湾区大叔",
+    "voice_type": "zh_female_wanqudashu_moon_bigtts",
+    "language": "中文-广东口音"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "呆萌川妹",
+    "voice_type": "zh_female_daimengchuanmei_moon_bigtts",
+    "language": "中文-四川口音"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "广州德哥",
+    "voice_type": "zh_male_guozhoudege_moon_bigtts",
+    "language": "中文-广东口音"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "北京小爷",
+    "voice_type": "zh_male_beijingxiaoye_moon_bigtts",
+    "language": "中文-北京口音"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "浩宇小哥",
+    "voice_type": "zh_male_haoyuxiaoge_moon_bigtts",
+    "language": "中文-青岛口音"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "广西远舟",
+    "voice_type": "zh_male_guangxiyuanzhou_moon_bigtts",
+    "language": "中文-广西口音"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "妹坨洁儿",
+    "voice_type": "zh_female_meituojieer_moon_bigtts",
+    "language": "中文-长沙口音"
+  },
+  {
+    "category": "趣味口音",
+    "character_name": "豫州子轩",
+    "voice_type": "zh_male_yuzhouzixuan_moon_bigtts",
+    "language": "中文-河南口音"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "奶气萌娃",
+    "voice_type": "zh_male_naiqimengwa_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "婆婆",
+    "voice_type": "zh_female_popo_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "高冷御姐",
+    "voice_type": "zh_female_gaolengyujie_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "傲娇霸总",
+    "voice_type": "zh_male_aojiaobazong_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "魅力女友",
+    "voice_type": "zh_female_meilinvyou_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "深夜播客",
+    "voice_type": "zh_male_shenyeboke_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "柔美女友",
+    "voice_type": "zh_female_sajiaonvyou_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "撒娇学妹",
+    "voice_type": "zh_female_yuanqinvyou_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病弱少女",
+    "voice_type": "ICL_zh_female_bingruoshaonv_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "活泼女孩",
+    "voice_type": "ICL_zh_female_huoponvhai_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "东方浩然",
+    "voice_type": "zh_male_dongfanghaoran_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "绿茶小哥",
+    "voice_type": "ICL_zh_male_lvchaxiaoge_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "娇弱萝莉",
+    "voice_type": "ICL_zh_female_jiaoruoluoli_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "冷淡疏离",
+    "voice_type": "ICL_zh_male_lengdanshuli_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "憨厚敦实",
+    "voice_type": "ICL_zh_male_hanhoudunshi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "傲气凌人",
+    "voice_type": "ICL_zh_male_aiqilingren_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "活泼刁蛮",
+    "voice_type": "ICL_zh_female_huopodiaoman_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "固执病娇",
+    "voice_type": "ICL_zh_male_guzhibingjiao_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "撒娇粘人",
+    "voice_type": "ICL_zh_male_sajiaonianren_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "傲慢娇声",
+    "voice_type": "ICL_zh_female_aomanjiaosheng_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "潇洒随性",
+    "voice_type": "ICL_zh_male_xiaosasuixing_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "腹黑公子",
+    "voice_type": "ICL_zh_male_fuheigongzi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "诡异神秘",
+    "voice_type": "ICL_zh_male_guiyishenmi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "儒雅才俊",
+    "voice_type": "ICL_zh_male_ruyacaijun_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病娇白莲",
+    "voice_type": "ICL_zh_male_bingjiaobailian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "正直青年",
+    "voice_type": "ICL_zh_male_zhengzhiqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "娇憨女王",
+    "voice_type": "ICL_zh_female_jiaohannvwang_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病娇萌妹",
+    "voice_type": "ICL_zh_female_bingjiaomengmei_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "青涩小生",
+    "voice_type": "ICL_zh_male_qingsenaigou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "纯真学弟",
+    "voice_type": "ICL_zh_male_chunzhenxuedi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "暖心学姐",
+    "voice_type": "ICL_zh_female_nuanxinxuejie_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "可爱女生",
+    "voice_type": "ICL_zh_female_keainvsheng_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "成熟姐姐",
+    "voice_type": "ICL_zh_female_chengshujiejie_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病娇姐姐",
+    "voice_type": "ICL_zh_female_bingjiaojiejie_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "优柔帮主",
+    "voice_type": "ICL_zh_male_youroubangzhu_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "优柔公子",
+    "voice_type": "ICL_zh_male_yourougongzi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "妩媚御姐",
+    "voice_type": "ICL_zh_female_wumeiyujie_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "调皮公主",
+    "voice_type": "ICL_zh_female_tiaopigongzhu_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "傲娇女友",
+    "voice_type": "ICL_zh_female_aojiaonvyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "贴心男友",
+    "voice_type": "ICL_zh_male_tiexinnanyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "少年将军",
+    "voice_type": "ICL_zh_male_shaonianjiangjun_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "贴心女友",
+    "voice_type": "ICL_zh_female_tiexinnvyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病娇哥哥",
+    "voice_type": "ICL_zh_male_bingjiaogege_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "学霸男同桌",
+    "voice_type": "ICL_zh_male_xuebanantongzhuo_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "幽默叔叔",
+    "voice_type": "ICL_zh_male_youmoshushu_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "妩媚可人",
+    "voice_type": "ICL_zh_female_ganli_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "邪魅御姐",
+    "voice_type": "ICL_zh_female_xiangliangya_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "性感御姐",
+    "voice_type": "ICL_zh_female_xingganyujie_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "嚣张小哥",
+    "voice_type": "ICL_zh_male_ms_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "油腻大叔",
+    "voice_type": "ICL_zh_male_you_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "孤傲公子",
+    "voice_type": "ICL_zh_male_guaogongzi_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "胡子叔叔",
+    "voice_type": "ICL_zh_male_huzi_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "性感魅惑",
+    "voice_type": "ICL_zh_female_luoqing_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "双节棍小哥",
+    "voice_type": "zh_male_zhoujielun_emo_v2_mars_bigtts",
+    "language": "中文-台湾口音"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病弱公子",
+    "voice_type": "ICL_zh_male_bingruogongzi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "邪魅女王",
+    "voice_type": "ICL_zh_female_bingjiao3_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "假小子",
+    "voice_type": "ICL_zh_female_jiaxiaozi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "冷峻上司",
+    "voice_type": "ICL_zh_male_lengjunshangsi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "温柔男同桌",
+    "voice_type": "ICL_zh_male_wenrounantongzhuo_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病娇弟弟",
+    "voice_type": "ICL_zh_male_bingjiaodidi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "幽默大爷",
+    "voice_type": "ICL_zh_male_youmodaye_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "傲慢少爷",
+    "voice_type": "ICL_zh_male_aomanshaoye_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "枕边低语",
+    "voice_type": "ICL_zh_male_asmryexiu_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "傲慢青年",
+    "voice_type": "ICL_zh_male_aomanqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "醋精男友",
+    "voice_type": "ICL_zh_male_cujingnanyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "醋精男生",
+    "voice_type": "ICL_zh_male_cujingnansheng_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "爽朗少年",
+    "voice_type": "ICL_zh_male_shuanglangshaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "撒娇男友",
+    "voice_type": "ICL_zh_male_sajiaonanyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "温柔男友",
+    "voice_type": "ICL_zh_male_wenrounanyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "温顺少年",
+    "voice_type": "ICL_zh_male_wenshunshaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "粘人男友",
+    "voice_type": "ICL_zh_male_naigounanyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "撒娇男生",
+    "voice_type": "ICL_zh_male_sajiaonansheng_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "活泼男友",
+    "voice_type": "ICL_zh_male_huoponanyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "甜系男友",
+    "voice_type": "ICL_zh_male_tianxinanyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "活力青年",
+    "voice_type": "ICL_zh_male_huoliqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "开朗青年",
+    "voice_type": "ICL_zh_male_kailangqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "冷漠兄长",
+    "voice_type": "ICL_zh_male_lengmoxiongzhang_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "天才同桌",
+    "voice_type": "ICL_zh_male_tiancaitongzhuo_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "傲娇精英",
+    "voice_type": "ICL_zh_male_aojiaojingying_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "翩翩公子",
+    "voice_type": "ICL_zh_male_pianpiangongzi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "懵懂青年",
+    "voice_type": "ICL_zh_male_mengdongqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "冷脸兄长",
+    "voice_type": "ICL_zh_male_lenglianxiongzhang_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病娇少年",
+    "voice_type": "ICL_zh_male_bingjiaoshaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病娇男友",
+    "voice_type": "ICL_zh_male_bingjiaonanyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "病弱少年",
+    "voice_type": "ICL_zh_male_bingruoshaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "意气少年",
+    "voice_type": "ICL_zh_male_yiqishaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "干净少年",
+    "voice_type": "ICL_zh_male_ganjingshaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "冷漠男友",
+    "voice_type": "ICL_zh_male_lengmonanyou_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "精英青年",
+    "voice_type": "ICL_zh_male_jingyingqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "风发少年",
+    "voice_type": "ICL_zh_male_fengfashaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "热血少年",
+    "voice_type": "ICL_zh_male_rexueshaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "清爽少年",
+    "voice_type": "ICL_zh_male_qingshuangshaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "中二青年",
+    "voice_type": "ICL_zh_male_zhongerqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "凌云青年",
+    "voice_type": "ICL_zh_male_lingyunqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "自负青年",
+    "voice_type": "ICL_zh_male_zifuqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "不羁青年",
+    "voice_type": "ICL_zh_male_bujiqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "儒雅君子",
+    "voice_type": "ICL_zh_male_ruyajunzi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "低音沉郁",
+    "voice_type": "ICL_zh_male_diyinchenyu_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "冷脸学霸",
+    "voice_type": "ICL_zh_male_lenglianxueba_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "儒雅总裁",
+    "voice_type": "ICL_zh_male_ruyazongcai_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "深沉总裁",
+    "voice_type": "ICL_zh_male_shenchenzongcai_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "小侯爷",
+    "voice_type": "ICL_zh_male_xiaohouye_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "孤高公子",
+    "voice_type": "ICL_zh_male_gugaogongzi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "仗剑君子",
+    "voice_type": "ICL_zh_male_zhangjianjunzi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "温润学者",
+    "voice_type": "ICL_zh_male_wenrunxuezhe_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "亲切青年",
+    "voice_type": "ICL_zh_male_qinqieqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "温柔学长",
+    "voice_type": "ICL_zh_male_wenrouxuezhang_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "磁性男嗓",
+    "voice_type": "ICL_zh_male_cixingnansang_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "高冷总裁",
+    "voice_type": "ICL_zh_male_gaolengzongcai_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "冷峻高智",
+    "voice_type": "ICL_zh_male_lengjungaozhi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "孱弱少爷",
+    "voice_type": "ICL_zh_male_chanruoshaoye_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "自信青年",
+    "voice_type": "ICL_zh_male_zixinqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "青涩青年",
+    "voice_type": "ICL_zh_male_qingseqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "学霸同桌",
+    "voice_type": "ICL_zh_male_xuebatongzhuo_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "冷傲总裁",
+    "voice_type": "ICL_zh_male_lengaozongcai_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "霸道少爷",
+    "voice_type": "ICL_zh_male_badaoshaoye_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "元气少年",
+    "voice_type": "ICL_zh_male_yuanqishaonian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "洒脱青年",
+    "voice_type": "ICL_zh_male_satuoqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "直率青年",
+    "voice_type": "ICL_zh_male_zhishuaiqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "斯文青年",
+    "voice_type": "ICL_zh_male_siwenqingnian_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "成熟总裁",
+    "voice_type": "ICL_zh_male_chengshuzongcai_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "俊逸公子",
+    "voice_type": "ICL_zh_male_junyigongzi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "傲娇公子",
+    "voice_type": "ICL_zh_male_aojiaogongzi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "仗剑侠客",
+    "voice_type": "ICL_zh_male_zhangjianxiake_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "机甲智能",
+    "voice_type": "ICL_zh_male_jijiaozhineng_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "神秘法师",
+    "voice_type": "ICL_zh_male_shenmifashi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "角色扮演",
+    "character_name": "霸道总裁",
+    "voice_type": "ICL_zh_male_badaozongcai_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "悠悠君子",
+    "voice_type": "zh_male_M100_conversation_wvae_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "文静毛毛",
+    "voice_type": "zh_female_maomao_conversation_wvae_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "倾心少女",
+    "voice_type": "ICL_zh_female_qiuling_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "醇厚低音",
+    "voice_type": "ICL_zh_male_buyan_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "咆哮小哥",
+    "voice_type": "ICL_zh_male_BV144_paoxiaoge_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "和蔼奶奶",
+    "voice_type": "ICL_zh_female_heainainai_tob",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "邻居阿姨",
+    "voice_type": "ICL_zh_female_linjuayi_tob",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "温柔小雅",
+    "voice_type": "zh_female_wenrouxiaoya_moon_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "天才童声",
+    "voice_type": "zh_male_tiancaitongsheng_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "猴哥",
+    "voice_type": "zh_male_sunwukong_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "熊二",
+    "voice_type": "zh_male_xionger_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "佩奇猪",
+    "voice_type": "zh_female_peiqi_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "武则天",
+    "voice_type": "zh_female_wuzetian_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "顾姐",
+    "voice_type": "zh_female_gujie_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "樱桃丸子",
+    "voice_type": "zh_female_yingtaowanzi_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "广告解说",
+    "voice_type": "zh_male_chunhui_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "少儿故事",
+    "voice_type": "zh_female_shaoergushi_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "四郎",
+    "voice_type": "zh_male_silang_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "磁性解说男声/Morgan",
+    "voice_type": "zh_male_jieshuonansheng_mars_bigtts",
+    "language": "中文、美式英语"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "鸡汤妹妹/Hope",
+    "voice_type": "zh_female_jitangmeimei_mars_bigtts",
+    "language": "中文、美式英语"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "贴心女声/Candy",
+    "voice_type": "zh_female_tiexinnvsheng_mars_bigtts",
+    "language": "中文、美式英语"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "俏皮女声",
+    "voice_type": "zh_female_qiaopinvsheng_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "萌丫头/Cutey",
+    "voice_type": "zh_female_mengyatou_mars_bigtts",
+    "language": "中文、美式英语"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "懒音绵宝",
+    "voice_type": "zh_male_lanxiaoyang_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "视频配音",
+    "character_name": "亮嗓萌仔",
+    "voice_type": "zh_male_dongmanhaimian_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "温暖少年",
+    "voice_type": "ICL_zh_male_yangyang_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "儒雅公子",
+    "voice_type": "ICL_zh_male_flc_v1_tob",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "悬疑解说",
+    "voice_type": "zh_male_changtianyi_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "儒雅青年",
+    "voice_type": "zh_male_ruyaqingnian_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "霸气青叔",
+    "voice_type": "zh_male_baqiqingshu_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "擎苍",
+    "voice_type": "zh_male_qingcang_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "活力小哥",
+    "voice_type": "zh_male_yangguangqingnian_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "古风少御",
+    "voice_type": "zh_female_gufengshaoyu_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "温柔淑女",
+    "voice_type": "zh_female_wenroushunv_mars_bigtts",
+    "language": "中文"
+  },
+  {
+    "category": "有声阅读",
+    "character_name": "反卷青年",
+    "voice_type": "zh_male_fanjuanqingnian_mars_bigtts",
+    "language": "中文"
+  }
+]

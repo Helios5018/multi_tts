@@ -241,7 +241,6 @@ def auto_voice_match_minimax(
         raise e
 
     # combine voice match list with minimax voice list
-
     voice_match_info_list = []
     for item in voice_match_list:
         voice_id = next(
