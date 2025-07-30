@@ -87,19 +87,13 @@ def novel_segmentation(text: str) -> List[Dict[str, Any]]:
 
     # Process segments to combine text with their punctuation marks
     processed_segments = []
-    current_segment = ""
 
-    for i, segment in enumerate(segments):
+    for segment in segments:
         if segment.strip():  # Skip empty segments
-            current_segment += segment
-            # skip single punctuation mark
-            if len(current_segment) == 1:
-                continue
-            # If this segment is a punctuation mark or we're at the end
-            if re.match(pattern, segment) or i == len(segments) - 1:
-                if current_segment.strip():  # Only add non-empty segments
-                    processed_segments.append(current_segment.strip())
-                    current_segment = ""
+            if re.search(r"\d|[\u4e00-\u9fff]|[a-zA-Z]", segment):
+                processed_segments.append(segment)
+            else:
+                processed_segments[-1] += segment
 
     # Create final result list with segment information
     result = []
