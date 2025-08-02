@@ -6,6 +6,7 @@ import json
 import re
 from dotenv import dotenv_values
 from time import sleep
+from abc import ABC, abstractmethod
 
 config: dict = dotenv_values(".env")
 
@@ -164,199 +165,200 @@ def identify_speaker(
     return speaker_list
 
 
-def auto_voice_match_by_llm(
-    role_list: List[Dict[str, Any]],
-    voice_list: List[Dict[str, Any]],
-) -> List[Dict[str, Any]]:
-    """auto voice match by llm
+class VoiceMatcher(ABC):
+    """voice matcher father class"""
 
-    Args:
-        role_list (List[Dict[str, Any]]): role list with specific structure
-        voice_list (List[Dict[str, Any]]): voice list with specific structure
-
-    Returns:
-        List[Dict[str, Any]]: voice match list with specific structure
-                            Each dictionary has the structure:
-                            {
-                                "role_id": int,
-                                "name": str,
-                                "voice_info": Dict[str, Any],
-                            }
-    """
-    # get current file path
-    current_file = Path(__file__)
-    # create prompt file path
-    prompt_file_path = current_file.parent / "prompts" / "auto_voice_match.md"
-    # read prompt file content
-    try:
-        system_prompt = prompt_file_path.read_text(encoding="utf-8")
-    except Exception as e:
-        raise e
-
-    # create user prompt
-    voice_list_str = json.dumps(voice_list, ensure_ascii=False)
-    role_list_str = json.dumps(role_list, ensure_ascii=False)
-
-    user_prompt = f"""
-    # 角色列表: {role_list_str}
-    # 音色库: {voice_list_str}
-    """
-
-    # auto match voice by llm
-    try:
-        voice_match_list_str = t2t(
-            system_prompt=system_prompt,
-            user_prompt=user_prompt,
-            llm="new_api",
-            model="gemini-2.5-pro",
-            response_format={"type": "json_object"},
+    def __init__(self):
+        self.current_file = Path(__file__)
+        self.prompt_file_path = (
+            self.current_file.parent / "prompts" / "auto_voice_match.md"
         )
-    except Exception as e:
-        raise e
+        self._load_system_prompt()
 
-    # check output format
-    try:
-        voice_match_list = json.loads(voice_match_list_str)
-    except Exception as e:
-        raise e
+    def _load_system_prompt(self):
+        try:
+            self.system_prompt = self.prompt_file_path.read_text(encoding="utf-8")
+        except Exception as e:
+            raise e
 
-    return voice_match_list
+    @abstractmethod
+    def _load_voice_list(self) -> List[Dict[str, Any]]:
+        pass
 
+    @abstractmethod
+    def _process_voice_list(
+        self, raw_voice_list: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
+        pass
 
-def auto_voice_match_minimax(
-    role_list: List[Dict[str, Any]],
-) -> List[Dict[str, Any]]:
-    """auto voice match by minimax voice list
+    @abstractmethod
+    def _create_voice_info(
+        self, voice_match_item: Dict[str, Any], raw_voice_list: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
+        pass
 
-    Args:
-        role_list (List[Dict[str, Any]]): role list with specific structure
+    def _match_voice_by_llm(
+        self, role_list: List[Dict[str, Any]], voice_list: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
+        """use llm to match suitable rolevoice"""
+        # create user prompt
+        voice_list_str = json.dumps(voice_list, ensure_ascii=False)
+        role_list_str = json.dumps(role_list, ensure_ascii=False)
 
-    Returns:
-        List[Dict[str, Any]]: voice match list with specific structure
-                            Each dictionary has the structure:
-                            {
-                                "role_id": int,
-                                "name": str,
-                                "voice_info": Dict[str, Any],
-                            }
-    """
-    # get current file path
-    current_file = Path(__file__)
+        user_prompt = f"""
+        # 角色列表: {role_list_str}
+        # 音色库: {voice_list_str}
+        """
 
-    # read minimax voice list
-    minimax_voice_list_file_path = (
-        current_file.parent / "voice_list" / "minimax_voice_list.json"
-    )
-    try:
-        minimax_voice_list_str = minimax_voice_list_file_path.read_text(
-            encoding="utf-8"
-        )
-        minimax_voice_list = json.loads(minimax_voice_list_str)
-    except Exception as e:
-        raise e
+        # use llm to match voice
+        try:
+            voice_match_list_str = t2t(
+                system_prompt=self.system_prompt,
+                user_prompt=user_prompt,
+                llm="new_api",
+                model="gemini-2.5-pro",
+                response_format={"type": "json_object"},
+            )
+        except Exception as e:
+            raise e
 
-    # auto match voice by llm
-    voice_match_list = auto_voice_match_by_llm(role_list, minimax_voice_list)
+        # check output format
+        try:
+            voice_match_list = json.loads(voice_match_list_str)
+        except Exception as e:
+            raise e
 
-    # create voice list
-    voice_list = []
-    for item in minimax_voice_list:
-        voice_list.append(
-            {
-                "voice_name": item["voice_name"],
-                "description": item["description"],
+        return voice_match_list
+
+    def match_voices(self, role_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """match voices by role list
+        Args:
+            role_list (List[Dict[str, Any]]): role list with specific structure
+        Returns:
+            List[Dict[str, Any]]: voice match info list with specific structure
+                                Each dictionary has the structure:
+                                {
+                                    "role_id": str,
+                                    "name": str,
+                                    "voice_info": Dict[str, Any]
+                                }
+        """
+        # load voice list
+        raw_voice_list = self._load_voice_list()
+
+        # process voice list
+        processed_voice_list = self._process_voice_list(raw_voice_list)
+
+        # match voice by llm
+        voice_match_list = self._match_voice_by_llm(role_list, processed_voice_list)
+
+        # create final match info list
+        voice_match_info_list = []
+        for item in voice_match_list:
+            voice_match_info = {
+                "role_id": item["role_id"],
+                "name": item["name"],
+                "voice_info": self._create_voice_info(item, raw_voice_list),
             }
-        )
+            voice_match_info_list.append(voice_match_info)
 
-    # combine voice match list with minimax voice list
-    voice_match_info_list = []
-    for item in voice_match_list:
+        return voice_match_info_list
+
+
+class MinimaxVoiceMatcher(VoiceMatcher):
+    """minimax voice matcher"""
+
+    def _load_voice_list(self) -> List[Dict[str, Any]]:
+        minimax_voice_list_file_path = (
+            self.current_file.parent / "voice_list" / "minimax_voice_list.json"
+        )
+        try:
+            minimax_voice_list_str = minimax_voice_list_file_path.read_text(
+                encoding="utf-8"
+            )
+            minimax_voice_list = json.loads(minimax_voice_list_str)
+            return minimax_voice_list
+        except Exception as e:
+            raise e
+
+    def _process_voice_list(
+        self, raw_voice_list: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
+        voice_list = []
+        for item in raw_voice_list:
+            voice_list.append(
+                {
+                    "voice_name": item["voice_name"],
+                    "description": item["description"],
+                }
+            )
+        return voice_list
+
+    def _create_voice_info(
+        self, voice_match_item: Dict[str, Any], raw_voice_list: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         voice_id = next(
             (
                 voice["voice_id"]
-                for voice in minimax_voice_list
-                if voice["voice_name"] == item["voice_name"]
+                for voice in raw_voice_list
+                if voice["voice_name"] == voice_match_item["voice_name"]
             ),
             None,
         )
-        voice_match_info = {}
-        voice_match_info["role_id"] = item["role_id"]
-        voice_match_info["name"] = item["name"]
-        voice_match_info["voice_info"] = {
-            "voice_name": item["voice_name"],
+
+        return {
+            "voice_name": voice_match_item["voice_name"],
             "voice_source": "minimax",
             "voice": voice_id,
         }
-        voice_match_info_list.append(voice_match_info)
-
-    return voice_match_info_list
 
 
-def auto_voice_match_doubao(
-    role_list: List[Dict[str, Any]],
-) -> List[Dict[str, Any]]:
-    """auto voice match by doubao voice list
+class DoubaoVoiceMatcher(VoiceMatcher):
+    """doubao voice matcher"""
 
-    Args:
-        role_list (List[Dict[str, Any]]): role list with specific structure
-
-    Returns:
-        List[Dict[str, Any]]: voice match list with specific structure
-                            Each dictionary has the structure:
-                            {
-                                "role_id": int,
-                                "name": str,
-                                "voice_info": Dict[str, Any],
-                            }
-    """
-    # get current file path
-    current_file = Path(__file__)
-
-    # read doubao voice list
-    doubao_voice_list_file_path = (
-        current_file.parent / "voice_list" / "doubao_voice_list.json"
-    )
-    try:
-        doubao_voice_list_str = doubao_voice_list_file_path.read_text(encoding="utf-8")
-        doubao_voice_list = json.loads(doubao_voice_list_str)
-    except Exception as e:
-        raise e
-
-    # create voice list
-    voice_list = []
-    for item in doubao_voice_list:
-        voice_list.append(
-            {
-                "voice_name": item["character_name"],
-                "category": item["category"],
-            }
+    def _load_voice_list(self) -> List[Dict[str, Any]]:
+        doubao_voice_list_file_path = (
+            self.current_file.parent / "voice_list" / "doubao_voice_list.json"
         )
+        try:
+            doubao_voice_list_str = doubao_voice_list_file_path.read_text(
+                encoding="utf-8"
+            )
+            doubao_voice_list = json.loads(doubao_voice_list_str)
+            return doubao_voice_list
+        except Exception as e:
+            raise e
 
-    # auto match voice by llm
-    voice_match_list = auto_voice_match_by_llm(role_list, voice_list)
+    def _process_voice_list(
+        self, raw_voice_list: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
+        voice_list = []
+        for item in raw_voice_list:
+            voice_list.append(
+                {
+                    "voice_name": item["character_name"],
+                    "category": item["category"],
+                }
+            )
+        return voice_list
 
-    # combine voice match list with minimax voice list
-    voice_match_info_list = []
-    for item in voice_match_list:
+    def _create_voice_info(
+        self, voice_match_item: Dict[str, Any], raw_voice_list: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         voice_type = next(
             (
                 voice["voice_type"]
-                for voice in doubao_voice_list
-                if voice["character_name"] == item["voice_name"]
+                for voice in raw_voice_list
+                if voice["character_name"] == voice_match_item["voice_name"]
             ),
             None,
         )
-        voice_match_info = {}
-        voice_match_info["role_id"] = item["role_id"]
-        voice_match_info["name"] = item["name"]
-        voice_match_info["voice_info"] = {
-            "voice_name": item["voice_name"],
+
+        return {
+            "voice_name": voice_match_item["voice_name"],
             "voice_source": "doubao",
             "voice": voice_type,
         }
-        voice_match_info_list.append(voice_match_info)
-
-    return voice_match_info_list
 
 
 def combine_data(
@@ -510,9 +512,9 @@ def multi_tts_workflow(
     role_list = identify_role(text)
     # step2: auto voice match
     if tts_llm == "minimax":
-        voice_match_info_list = auto_voice_match_minimax(role_list)
+        voice_match_info_list = MinimaxVoiceMatcher().match_voices(role_list)
     elif tts_llm == "doubao":
-        voice_match_info_list = auto_voice_match_doubao(role_list)
+        voice_match_info_list = DoubaoVoiceMatcher().match_voices(role_list)
     else:
         raise ValueError(f"tts_llm {tts_llm} not supported")
     # step3: segment novel text
@@ -534,15 +536,15 @@ if __name__ == "__main__":
     ) as f:
         text_novel = f.read()
 
-    # # 测试角色识别功能
-    # print("\n=== 角色识别结果 ===")
-    # role_list = identify_role(text_novel)
-    # print(role_list)
+    # 测试角色识别功能
+    print("\n=== 角色识别结果 ===")
+    role_list = identify_role(text_novel)
+    print(role_list)
 
-    # # 测试音色匹配功能
-    # print("\n=== 音色匹配结果 ===")
-    # voice_match_info_list = auto_voice_match_doubao(role_list)
-    # print(voice_match_info_list)
+    # 测试音色匹配功能
+    print("\n=== 音色匹配结果 ===")
+    voice_match_info_list = DoubaoVoiceMatcher().match_voices(role_list)
+    print(voice_match_info_list)
 
     # # 测试小说切分功能
     # print("\n=== 小说切分结果 ===")
