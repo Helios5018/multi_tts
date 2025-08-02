@@ -1,6 +1,6 @@
 import requests
 import json
-from typing import Dict, Optional
+from typing import Dict
 from dotenv import dotenv_values
 
 config: dict = dotenv_values(".env")
@@ -55,7 +55,7 @@ def t2t_new_api(
 
     try:
         parsed_json: dict = json.loads(response.text)
-        llm_result: Optional[str] = parsed_json["choices"][0]["message"]["content"]
+        llm_result: str = parsed_json["choices"][0]["message"]["content"]
     except Exception as e:
         print(f"NewApi API error: {e}")
         raise e
@@ -113,7 +113,7 @@ def t2t_hunyuan(
 
     try:
         parsed_json: dict = json.loads(response.text)
-        llm_result: Optional[str] = parsed_json["choices"][0]["message"]["content"]
+        llm_result: str = parsed_json["choices"][0]["message"]["content"]
     except Exception as e:
         print(f"Hunyuan API error: {e}")
         raise e
@@ -172,7 +172,7 @@ def t2t_qwen(
 
     try:
         parsed_json: dict = json.loads(response.text)
-        llm_result: Optional[str] = parsed_json["choices"][0]["message"]["content"]
+        llm_result: str = parsed_json["choices"][0]["message"]["content"]
     except Exception as e:
         print(f"Qwen API error: {e}")
         raise e

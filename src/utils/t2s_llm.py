@@ -144,6 +144,44 @@ def t2s_doubao(
     return audio_value
 
 
+def t2s(
+    text: str,
+    llm: str,
+    voice: str,
+    speed: float = 1,
+    vol: float = 1,
+    pitch: float = 0,
+    emotion: str = "calm",
+) -> bytes:
+    """text to sound by tts api
+
+    Args:
+        text (str): input text
+        llm (str): tts llm name, options: "minimax", "doubao"
+        voice (str): voice
+        speed (float, optional): speed. Defaults to 1.0.
+        vol (float, optional): volume. Defaults to 1.0.
+        pitch (float, optional): pitch. Defaults to 0.0.
+        emotion (str, optional): emotion. Defaults to "calm".
+
+    Returns:
+        bytes: audio bytes
+    """
+    if llm == "minimax":
+        return t2s_minimax(
+            text=text,
+            voice_id=voice,
+            speed=speed,
+            vol=vol,
+            pitch=pitch,
+            emotion=emotion,
+        )
+    elif llm == "doubao":
+        return t2s_doubao(text=text, voice_type=voice, speed_ratio=speed)
+    else:
+        raise ValueError(f"Unsupported llm: {llm}")
+
+
 if __name__ == "__main__":
     audio_value = t2s_minimax("你好，我是你的语音助手123，很高兴见到你")
     with open("minimax_test.mp3", "wb") as f:

@@ -1,5 +1,5 @@
 from utils.t2t_llm import t2t
-from utils.t2s_llm import t2s_minimax
+from utils.t2s_llm import t2s
 from typing import List, Dict, Any
 from pathlib import Path
 import json
@@ -164,13 +164,15 @@ def identify_speaker(
     return speaker_list
 
 
-def auto_voice_match_minimax(
+def auto_voice_match_by_llm(
     role_list: List[Dict[str, Any]],
+    voice_list: List[Dict[str, Any]],
 ) -> List[Dict[str, Any]]:
-    """auto voice match by minimax voice list
+    """auto voice match by llm
 
     Args:
         role_list (List[Dict[str, Any]]): role list with specific structure
+        voice_list (List[Dict[str, Any]]): voice list with specific structure
 
     Returns:
         List[Dict[str, Any]]: voice match list with specific structure
@@ -190,28 +192,6 @@ def auto_voice_match_minimax(
         system_prompt = prompt_file_path.read_text(encoding="utf-8")
     except Exception as e:
         raise e
-
-    # read minimax voice list
-    minimax_voice_list_file_path = (
-        current_file.parent / "voice_list" / "minimax_voice_list.json"
-    )
-    try:
-        minimax_voice_list_str = minimax_voice_list_file_path.read_text(
-            encoding="utf-8"
-        )
-        minimax_voice_list = json.loads(minimax_voice_list_str)
-    except Exception as e:
-        raise e
-
-    # create voice list
-    voice_list = []
-    for item in minimax_voice_list:
-        voice_list.append(
-            {
-                "voice_name": item["voice_name"],
-                "description": item["description"],
-            }
-        )
 
     # create user prompt
     voice_list_str = json.dumps(voice_list, ensure_ascii=False)
@@ -240,6 +220,54 @@ def auto_voice_match_minimax(
     except Exception as e:
         raise e
 
+    return voice_match_list
+
+
+def auto_voice_match_minimax(
+    role_list: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """auto voice match by minimax voice list
+
+    Args:
+        role_list (List[Dict[str, Any]]): role list with specific structure
+
+    Returns:
+        List[Dict[str, Any]]: voice match list with specific structure
+                            Each dictionary has the structure:
+                            {
+                                "role_id": int,
+                                "name": str,
+                                "voice_info": Dict[str, Any],
+                            }
+    """
+    # get current file path
+    current_file = Path(__file__)
+
+    # read minimax voice list
+    minimax_voice_list_file_path = (
+        current_file.parent / "voice_list" / "minimax_voice_list.json"
+    )
+    try:
+        minimax_voice_list_str = minimax_voice_list_file_path.read_text(
+            encoding="utf-8"
+        )
+        minimax_voice_list = json.loads(minimax_voice_list_str)
+    except Exception as e:
+        raise e
+
+    # auto match voice by llm
+    voice_match_list = auto_voice_match_by_llm(role_list, minimax_voice_list)
+
+    # create voice list
+    voice_list = []
+    for item in minimax_voice_list:
+        voice_list.append(
+            {
+                "voice_name": item["voice_name"],
+                "description": item["description"],
+            }
+        )
+
     # combine voice match list with minimax voice list
     voice_match_info_list = []
     for item in voice_match_list:
@@ -257,7 +285,74 @@ def auto_voice_match_minimax(
         voice_match_info["voice_info"] = {
             "voice_name": item["voice_name"],
             "voice_source": "minimax",
-            "voice_id": voice_id,
+            "voice": voice_id,
+        }
+        voice_match_info_list.append(voice_match_info)
+
+    return voice_match_info_list
+
+
+def auto_voice_match_doubao(
+    role_list: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """auto voice match by doubao voice list
+
+    Args:
+        role_list (List[Dict[str, Any]]): role list with specific structure
+
+    Returns:
+        List[Dict[str, Any]]: voice match list with specific structure
+                            Each dictionary has the structure:
+                            {
+                                "role_id": int,
+                                "name": str,
+                                "voice_info": Dict[str, Any],
+                            }
+    """
+    # get current file path
+    current_file = Path(__file__)
+
+    # read doubao voice list
+    doubao_voice_list_file_path = (
+        current_file.parent / "voice_list" / "doubao_voice_list.json"
+    )
+    try:
+        doubao_voice_list_str = doubao_voice_list_file_path.read_text(encoding="utf-8")
+        doubao_voice_list = json.loads(doubao_voice_list_str)
+    except Exception as e:
+        raise e
+
+    # create voice list
+    voice_list = []
+    for item in doubao_voice_list:
+        voice_list.append(
+            {
+                "voice_name": item["character_name"],
+                "category": item["category"],
+            }
+        )
+
+    # auto match voice by llm
+    voice_match_list = auto_voice_match_by_llm(role_list, voice_list)
+
+    # combine voice match list with minimax voice list
+    voice_match_info_list = []
+    for item in voice_match_list:
+        voice_type = next(
+            (
+                voice["voice_type"]
+                for voice in doubao_voice_list
+                if voice["character_name"] == item["voice_name"]
+            ),
+            None,
+        )
+        voice_match_info = {}
+        voice_match_info["role_id"] = item["role_id"]
+        voice_match_info["name"] = item["name"]
+        voice_match_info["voice_info"] = {
+            "voice_name": item["voice_name"],
+            "voice_source": "doubao",
+            "voice": voice_type,
         }
         voice_match_info_list.append(voice_match_info)
 
@@ -380,13 +475,14 @@ def tts_generation(integrated_data: List[Dict[str, Any]], floder_name="output"):
     output_dir = Path(f"tests/output_tts/{floder_name}")
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # generate tts minimax
+    # generate tts
     for item in integrated_data:
         # tts bytes generation
         try:
-            audio_bytes = t2s_minimax(
+            audio_bytes = t2s(
                 text=item["content"],
-                voice_id=item["voice_info"]["voice_id"],
+                llm=item["voice_info"]["voice_source"],
+                voice=item["voice_info"]["voice"],
             )
         except Exception as e:
             raise e
@@ -399,18 +495,26 @@ def tts_generation(integrated_data: List[Dict[str, Any]], floder_name="output"):
             raise e
 
 
-def multi_tts_workflow(text: str, floder_name="output"):
+def multi_tts_workflow(
+    text: str, floder_name: str = "output", tts_llm: str = "minimax"
+):
     """multi tts workflow, generate tts audio file from input novel text, which output to floder_name
 
     Args:
         text (str): input text
         floder_name (str, optional): output floder name. Defaults to "output".
+        tts_llm (str, optional): tts llm name. Defaults to "minimax".options: "minimax", "doubao"
 
     """
     # step1: identify role
     role_list = identify_role(text)
     # step2: auto voice match
-    voice_match_info_list = auto_voice_match_minimax(role_list)
+    if tts_llm == "minimax":
+        voice_match_info_list = auto_voice_match_minimax(role_list)
+    elif tts_llm == "doubao":
+        voice_match_info_list = auto_voice_match_doubao(role_list)
+    else:
+        raise ValueError(f"tts_llm {tts_llm} not supported")
     # step3: segment novel text
     segments = novel_segmentation(text)
     # step4: identify speaker
@@ -437,13 +541,13 @@ if __name__ == "__main__":
 
     # # 测试音色匹配功能
     # print("\n=== 音色匹配结果 ===")
-    # voice_match_info_list = auto_voice_match_minimax(role_list)
+    # voice_match_info_list = auto_voice_match_doubao(role_list)
     # print(voice_match_info_list)
 
-    # 测试小说切分功能
-    print("\n=== 小说切分结果 ===")
-    segments = novel_segmentation(text_novel)
-    print(segments)
+    # # 测试小说切分功能
+    # print("\n=== 小说切分结果 ===")
+    # segments = novel_segmentation(text_novel)
+    # print(segments)
 
     # # 测试说话人识别功能
     # print("\n=== 说话人识别结果 ===")
