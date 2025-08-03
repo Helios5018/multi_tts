@@ -7,6 +7,7 @@ import re
 from dotenv import dotenv_values
 from time import sleep
 from abc import ABC, abstractmethod
+from concurrent.futures import ThreadPoolExecutor
 
 config: dict = dotenv_values(".env")
 
@@ -508,24 +509,45 @@ def multi_tts_workflow(
         tts_llm (str, optional): tts llm name. Defaults to "minimax".options: "minimax", "doubao"
 
     """
-    # step1: identify role
-    role_list = identify_role(text)
-    # step2: auto voice match
-    if tts_llm == "minimax":
-        voice_match_info_list = MinimaxVoiceMatcher().match_voices(role_list)
-    elif tts_llm == "doubao":
-        voice_match_info_list = DoubaoVoiceMatcher().match_voices(role_list)
-    else:
-        raise ValueError(f"tts_llm {tts_llm} not supported")
-    # step3: segment novel text
+    # step1: segment novel text
     segments = novel_segmentation(text)
-    # step4: identify speaker
-    speaker_list = identify_speaker(segments, role_list)
-    # step5: combine data
+    print("=== 小说切分结果 ===")
+    print(segments)
+    # step2: identify role
+    role_list = identify_role(text)
+    print("=== 角色识别结果 ===")
+    print(role_list)
+    # step3: auto voice match and speaker identify
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        if tts_llm == "minimax":
+            future_voice_match_info_list = executor.submit(
+                MinimaxVoiceMatcher().match_voices, role_list
+            )
+        elif tts_llm == "doubao":
+            future_voice_match_info_list = executor.submit(
+                DoubaoVoiceMatcher().match_voices, role_list
+            )
+        else:
+            raise ValueError(f"tts_llm {tts_llm} not supported")
+
+        future_speaker_list = executor.submit(identify_speaker, segments, role_list)
+
+        voice_match_info_list = future_voice_match_info_list.result()
+        print("=== 音色匹配结果 ===")
+        print(voice_match_info_list)
+        speaker_list = future_speaker_list.result()
+        print("=== 说话人识别结果 ===")
+        print(speaker_list)
+
+    # step4: combine data
     combined_data = combine_data(segments, speaker_list, voice_match_info_list)
-    # step6: integrate same speaker
+    print("=== 数据合并结果 ===")
+    print(combined_data)
+    # step5: integrate same speaker
     integrated_data = integrate_same_speaker(combined_data)
-    # step7: tts generation
+    print("=== 数据整合结果 ===")
+    print(integrated_data)
+    # step6: tts generation
     tts_generation(integrated_data, floder_name=floder_name)
 
 
@@ -536,36 +558,5 @@ if __name__ == "__main__":
     ) as f:
         text_novel = f.read()
 
-    # 测试角色识别功能
-    print("\n=== 角色识别结果 ===")
-    role_list = identify_role(text_novel)
-    print(role_list)
-
-    # 测试音色匹配功能
-    print("\n=== 音色匹配结果 ===")
-    voice_match_info_list = DoubaoVoiceMatcher().match_voices(role_list)
-    print(voice_match_info_list)
-
-    # # 测试小说切分功能
-    # print("\n=== 小说切分结果 ===")
-    # segments = novel_segmentation(text_novel)
-    # print(segments)
-
-    # # 测试说话人识别功能
-    # print("\n=== 说话人识别结果 ===")
-    # speaker_list = identify_speaker(segments, role_list)
-    # print(speaker_list)
-
-    # # 测试数据合并功能
-    # print("\n=== 数据合并结果 ===")
-    # combined_data = combine_data(segments, speaker_list, voice_match_info_list)
-    # print(combined_data)
-
-    # # 测试数据整合功能
-    # print("\n=== 数据整合结果 ===")
-    # integrated_data = integrate_same_speaker(combined_data)
-    # print(integrated_data)
-
-    # # 测试TTS生成功能
-    # print("\n=== TTS生成结果 ===")
-    # tts_generation(integrated_data, floder_name="1911新中华")
+    # 执行多TTS工作流
+    multi_tts_workflow(text_novel, floder_name="1911新中华", tts_llm="minimax")
