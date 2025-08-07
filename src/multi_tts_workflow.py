@@ -58,7 +58,7 @@ def identify_role(text: str) -> List[Dict[str, Any]]:
 
 
 def novel_segmentation(text: str) -> List[Dict[str, Any]]:
-    """Segment novel text into smaller chunks based on punctuation marks.
+    """Segment novel text into smaller chunks based on punctuation marks
 
     Args:
         text (str): The input novel text to be segmented.
@@ -167,7 +167,7 @@ def identify_speaker(
 
 
 class VoiceMatcher(ABC):
-    """voice matcher father class"""
+    """voice matcher base class"""
 
     def __init__(self):
         self.current_file = Path(__file__)
@@ -467,15 +467,15 @@ def integrate_same_speaker(combined_data: List[Dict[str, Any]]) -> List[Dict[str
     return integrated_data
 
 
-def tts_generation(integrated_data: List[Dict[str, Any]], floder_name="output"):
-    """tts generation
+def tts_generation(integrated_data: List[Dict[str, Any]], folder_name="output"):
+    """tts generation from integrated data
 
     Args:
         integrated_data (List[Dict[str, Any]]): integrated data list with specific structure
-        floder_name (str, optional): output floder name. Defaults to "output".
+        folder_name (str, optional): output floder name. Defaults to "output".
     """
     # create output dir
-    output_dir = Path(f"tests/output_tts/{floder_name}")
+    output_dir = Path(f"tests/output_tts/{folder_name}")
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # generate tts
@@ -499,13 +499,13 @@ def tts_generation(integrated_data: List[Dict[str, Any]], floder_name="output"):
 
 
 def multi_tts_workflow(
-    text: str, floder_name: str = "output", tts_llm: str = "minimax"
+    text: str, folder_name: str = "output", tts_llm: str = "minimax"
 ):
-    """multi tts workflow, generate tts audio file from input novel text, which output to floder_name
+    """multi tts workflow, generate tts audio file from input novel text, which output to folder_name
 
     Args:
         text (str): input text
-        floder_name (str, optional): output floder name. Defaults to "output".
+        folder_name (str, optional): output floder name. Defaults to "output".
         tts_llm (str, optional): tts llm name. Defaults to "minimax".options: "minimax", "doubao"
 
     """
@@ -548,7 +548,7 @@ def multi_tts_workflow(
     print("=== 数据整合结果 ===")
     print(integrated_data)
     # step6: tts generation
-    tts_generation(integrated_data, floder_name=floder_name)
+    tts_generation(integrated_data, folder_name=folder_name)
 
 
 if __name__ == "__main__":
@@ -559,4 +559,4 @@ if __name__ == "__main__":
         text_novel = f.read()
 
     # 执行多TTS工作流
-    multi_tts_workflow(text_novel, floder_name="1911新中华", tts_llm="minimax")
+    multi_tts_workflow(text_novel, folder_name="1911新中华", tts_llm="minimax")

@@ -158,7 +158,7 @@ def t2s(
     Args:
         text (str): input text
         llm (str): tts llm name, options: "minimax", "doubao"
-        voice (str): voice
+        voice (str): selected voice
         speed (float, optional): speed. Defaults to 1.0.
         vol (float, optional): volume. Defaults to 1.0.
         pitch (float, optional): pitch. Defaults to 0.0.
