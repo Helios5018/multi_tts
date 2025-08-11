@@ -188,18 +188,23 @@ class VoiceMatcher(ABC):
 
     @abstractmethod
     def _process_voice_list(
-        self, raw_voice_list: List[Dict[str, Any]]
+        self,
+        raw_voice_list: List[Dict[str, Any]]
     ) -> List[Dict[str, Any]]:
         pass
 
     @abstractmethod
     def _create_voice_info(
-        self, voice_match_item: Dict[str, Any], raw_voice_list: List[Dict[str, Any]]
+        self,
+        voice_match_item: Dict[str, Any],
+        raw_voice_list: List[Dict[str, Any]]
     ) -> Dict[str, Any]:
         pass
 
     def _match_voice_by_llm(
-        self, role_list: List[Dict[str, Any]], voice_list: List[Dict[str, Any]]
+        self,
+        role_list: List[Dict[str, Any]],
+        voice_list: List[Dict[str, Any]]
     ) -> List[Dict[str, Any]]:
         """use llm to match suitable rolevoice"""
         # create user prompt
@@ -283,7 +288,8 @@ class MinimaxVoiceMatcher(VoiceMatcher):
             raise e
 
     def _process_voice_list(
-        self, raw_voice_list: List[Dict[str, Any]]
+        self,
+        raw_voice_list: List[Dict[str, Any]]
     ) -> List[Dict[str, Any]]:
         voice_list = []
         for item in raw_voice_list:
@@ -296,7 +302,9 @@ class MinimaxVoiceMatcher(VoiceMatcher):
         return voice_list
 
     def _create_voice_info(
-        self, voice_match_item: Dict[str, Any], raw_voice_list: List[Dict[str, Any]]
+        self,
+        voice_match_item: Dict[str, Any],
+        raw_voice_list: List[Dict[str, Any]]
     ) -> Dict[str, Any]:
         voice_id = next(
             (
@@ -435,31 +443,31 @@ def integrate_same_speaker(combined_data: List[Dict[str, Any]]) -> List[Dict[str
     integrated_data = []
     last_segment_speaker = ""
     last_voice_info = {}
-    combile_content = ""
+    combine_content = ""
 
     for item in combined_data:
         if item["speaker"] == last_segment_speaker:
-            combile_content += item["content"]
+            combine_content += item["content"]
         else:
-            if combile_content:
+            if combine_content:
                 new_item = {
                     "segment_id": len(integrated_data),
                     "speaker": last_segment_speaker,
-                    "content": combile_content.replace("\n", ""),
+                    "content": combine_content.replace("\n", ""),
                     "voice_info": last_voice_info,
                 }
                 integrated_data.append(new_item)
-            combile_content = item["content"]
+            combine_content = item["content"]
 
         last_segment_speaker = item["speaker"]
         last_voice_info = item["voice_info"]
 
     # add last item
-    if combile_content:
+    if combine_content:
         new_item = {
             "segment_id": len(integrated_data),
             "speaker": last_segment_speaker,
-            "content": combile_content,
+            "content": combine_content.replace("\n", ""),
             "voice_info": last_voice_info,
         }
         integrated_data.append(new_item)
@@ -480,22 +488,20 @@ def tts_generation(integrated_data: List[Dict[str, Any]], folder_name="output"):
 
     # generate tts
     for item in integrated_data:
+        # skip if no voice info
+        if not item.get("voice_info"):
+            continue
+
         # tts bytes generation
-        try:
-            audio_bytes = t2s(
-                text=item["content"],
-                llm=item["voice_info"]["voice_source"],
-                voice=item["voice_info"]["voice"],
-            )
-        except Exception as e:
-            raise e
+        audio_bytes = t2s(
+            text=item["content"],
+            llm=item["voice_info"]["voice_source"],
+            voice=item["voice_info"]["voice"],
+        )
         sleep(2)
         # save audio file
-        try:
-            with open(output_dir / f"{item['segment_id']}.mp3", "wb") as f:
-                f.write(audio_bytes)
-        except Exception as e:
-            raise e
+        with open(output_dir / f"{item['segment_id']}.mp3", "wb") as f:
+            f.write(audio_bytes)
 
 
 def multi_tts_workflow(
